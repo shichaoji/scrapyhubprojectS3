@@ -3,13 +3,17 @@ import scrapy
 from diary.items import DiaryItem
 
 class MonitorSpider(scrapy.Spider):
+    
+    csvPath = '/home/shj16110/notebook/download_soyoung/did17_7.csv'
+
     name = 'monitor'
     allowed_domains = ['www.soyoung.com']
     link = 'http://www.soyoung.com/dpg'
     start_urls=[]
-    with open('/home/shj16110/notebook/download_soyoung/did17_7.csv','r') as fh:
+    with open(csvPath,'r') as fh:
 	for line in fh.readlines():
 		start_urls.append(link + line.strip())
+    start_urls=start_urls[1:]
     print 'starting: ', len(start_urls), 'first: ', start_urls[0]
 
     def parse(self, response):

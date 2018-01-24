@@ -4,7 +4,7 @@ from diary.items import DiaryItem
 import urllib
 
 class MonitorSpider(scrapy.Spider):
-    csvPath = 'https://s3.amazonaws.com/shichaoji/did17_7.csv'
+    csvPath = 'https://s3.amazonaws.com/shichaoji/diaryID.csv'
 
     name = 'monitor'
     allowed_domains = ['www.soyoung.com']
@@ -36,4 +36,5 @@ class MonitorSpider(scrapy.Spider):
 		item['views']= coll[0]
 		item['comments']= coll[1]
 		item['favor']= coll[2]
-	yield item
+
+		yield item

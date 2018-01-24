@@ -1,0 +1,13 @@
+setup.py
+diary/__init__.py
+diary/items.py
+diary/middlewares.py
+diary/pipelines.py
+diary/settings.py
+diary/spiders/__init__.py
+diary/spiders/monitor.py
+scrapy_diary.egg-info/PKG-INFO
+scrapy_diary.egg-info/SOURCES.txt
+scrapy_diary.egg-info/dependency_links.txt
+scrapy_diary.egg-info/entry_points.txt
+scrapy_diary.egg-info/top_level.txt

@@ -25,7 +25,10 @@ class MonitorSpider(scrapy.Spider):
     print 'starting: ', len(start_urls), 'first: ', start_urls[0]
 
     def parse(self, response):
-
+        
+        if response.url == 'http://www.soyoung.com/dp':
+            return
+        
         basic={}
 
 
@@ -56,16 +59,20 @@ class MonitorSpider(scrapy.Spider):
 
 
         try:
-            basic['hospital'] = hos.css('a::text').extract()[0].strip()
-            basic['hospital_link'] = hos.css('a::attr(href)').extract()[0].strip()    
+            hx = hos.css('a::text').extract()
+            hy = hos.css('a::attr(href)').extract()
+            if len(hx)>0 and len(hy)>0:
+                basic['hospital'] = hx[0].strip()
+                basic['hospital_link'] = hy[0].strip()            
+             
         except Exception as e:
             print 'hp',e       
 
         try:    
             dx = doc.css('a::text').extract()
-            xy = doc.css('a::attr(href)').extract()
+            dy = doc.css('a::attr(href)').extract()
 
-            if len(dx)>0 and len(dy>0):
+            if len(dx)>0 and len(dy)>0:
                 basic['doctor_name'] = dx[0].strip()
                 basic['doctor_link'] = dy[0].strip()
         except Exception as e:

@@ -15,15 +15,25 @@ class DiaryItem(scrapy.Item):
     diary_link=scrapy.Field()    
     user_name=scrapy.Field()
     user_link=scrapy.Field()
+    
+    diary_name=scrapy.Field()
+    diary_date=scrapy.Field()
+    project_name=scrapy.Field()
+    
     hospital=scrapy.Field()
     hospital_link=scrapy.Field()
+    
     doctor_name=scrapy.Field()
     doctor_link=scrapy.Field()
+    
     product_name=scrapy.Field()
     product_link=scrapy.Field()
-    pre_surg_pic1==scrapy.Field()
-    pre_surg_pic2==scrapy.Field()
-    pre_surg_pic3==scrapy.Field()
+    
+    price=scrapy.Field()
+    
+    pre_surg_pic1=scrapy.Field()
+    pre_surg_pic2=scrapy.Field()
+    pre_surg_pic3=scrapy.Field()
     
     post_title=scrapy.Field()
     post_link=scrapy.Field()
